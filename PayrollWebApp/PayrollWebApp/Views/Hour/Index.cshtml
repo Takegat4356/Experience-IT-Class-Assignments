@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PayrollWebApp.Models.Hour>
+
+@{
+    ViewBag.Title = "Hours";
+}
+
+<h2>Hours</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Regular_Hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Overtime_Hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Holiday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vacation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regular_Hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Overtime_Hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Holiday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vacation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

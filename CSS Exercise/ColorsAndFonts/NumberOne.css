@@ -1,0 +1,25 @@
+﻿body {
+    background-color: #A2D0FF;
+    background-image: url("Lilly2.jpg");
+}
+
+h1 {
+    font-family: "Arial";
+    color: hotpink;
+    text-align: center;
+    font-size: 40px;
+    font-weight:bold;
+}
+
+h2 {
+    font-family: "Trebuchet MS";
+    color: darkblue;
+    text-align: center;
+    font-size: 22px;
+}
+
+p {
+    font-family: "Trebuchet MS";
+    font-size: 16px;
+}
+

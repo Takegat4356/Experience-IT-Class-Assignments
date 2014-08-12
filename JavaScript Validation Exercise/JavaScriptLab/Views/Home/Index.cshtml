@@ -1,0 +1,216 @@
+﻿@model JavaScriptLab.Models.User
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+
+    function validate() {
+        var error = false;
+        var errorList = ""; //an empty list
+
+        //First Name validation
+        var firstNameText = document.getElementById("FirstName");
+        var firstName = firstNameText.value;
+        if (firstName === "") {
+            error = true;
+            errorList += "<li> First Name is required</li>";
+        }
+
+        //Last Name validation
+        var lastNameText = document.getElementById("LastName");
+        var lastName = lastNameText.value;
+        if (lastName === "") {
+            error = true;
+            errorList += "<li> Last Name is required</li>";
+        }
+
+        //Middle Name validation
+        var middleNameText = document.getElementById("MiddleName");
+        var middleName = lastNameText.value;
+        if (middleName === "") {
+            error = true;
+            errorList += "<li> Middle Name is required</li>";
+        }
+
+        //Address Line One Name validation
+        var addressLineOneText = document.getElementById("AddressLineOne");
+        var addressLineOne = addressLineOneText.value;
+        if (addressLineOne === "") {
+            error = true;
+            errorList += "<li> Address Line One is required</li>";
+        }
+
+        //City validation
+        var cityText = document.getElementById("City");
+        var city = cityText.value;
+        if (city === "") {
+            error = true;
+            errorList += "<li> City is required</li>";
+        }
+
+        //State validation
+        var stateText = document.getElementById("State");
+        var state = stateText.value;
+        if (state === "") {
+            error = true;
+            errorList += "<li> State is required</li>";
+        }
+
+        //Zip validation
+        var zipText = document.getElementById("Zip");
+        var zip = zipText.value;
+        if (zip === "") {
+            error = true;
+            errorList += "<li> Zip is required</li>";
+        }
+
+        //Work Phone Number validation
+
+        var workPhone = document.getElementById("WorkPhone").value;
+        var regExPhone = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+        var workPhoneIsValid = regExPhone.test(workPhone);
+        if (workPhoneIsValid === false) {
+            error = true;
+            errorList += "<li> Work Phone is not correct</li>";
+        }
+
+        //Cell Phone Number validation
+
+        var cellPhone = document.getElementById("CellPhone").value;
+        var regExPhone = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/;
+        var cellPhoneIsValid = regExPhone.test(cellPhone);
+        if (cellPhoneIsValid === false) {
+            error = true;
+            errorList += "<li> Cell Phone is not correct</li>";
+        }
+
+
+        //Email Address validation
+
+        var emailAddress = document.getElementById("EmailAddress").value;
+        var regEmailAddress = /^[\w-\.]+@@([\w-]+\.)+[\w-]{2,4}$/;
+        var emailAddressIsValid = regEmailAddress.test(emailAddress);
+        if (emailAddressIsValid === false) {
+            error = true;
+            errorList += "<li> Email Address is not correct</li>";
+        }
+
+
+        //User Id validation
+        var userIdText = document.getElementById("UserId");
+        var userId = userIdText.value;
+        if (userId === "") {
+            error = true;
+            errorList += "<li> User Id is required</li>";
+        }
+
+
+
+
+        if (error === true) {
+
+            var errorListElement = document.getElementById("errorList");
+            errorListElement.innerHTML = errorList;
+        } else {
+            var form = document.getElementById("registrationForm");
+            form.submit();
+        }
+    }
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "registrationForm" }))
+{
+    <ul id="errorList"></ul>
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            <div>
+                @Html.EditorFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName)
+            <div>
+                @Html.EditorFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MiddleName)
+            <div>
+                @Html.EditorFor(model => model.MiddleName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AddressLineOne)
+            <div>
+                @Html.EditorFor(model => model.AddressLineOne)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AddressLineTwo)
+            <div>
+                @Html.EditorFor(model => model.AddressLineTwo)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.City)
+            <div>
+                @Html.EditorFor(model => model.City)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.State)
+            <div>
+                @Html.EditorFor(model => model.State)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Zip)
+            <div>
+                @Html.EditorFor(model => model.Zip)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkPhone)
+            <div>
+                @Html.EditorFor(model => model.WorkPhone)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CellPhone)
+            <div>
+                @Html.EditorFor(model => model.CellPhone)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress)
+            <div>
+                @Html.EditorFor(model => model.EmailAddress)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserId)
+            <div>
+                @Html.EditorFor(model => model.UserId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password)
+            <div>
+                @Html.PasswordFor(model => model.Password)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearsOfExperience)
+            <div>
+                @Html.TextBoxFor(model => model.YearsOfExperience)
+            </div>
+        </div>
+
+        <!--<input type="submit" value="Register" class="btn btn-default" />-->
+        <!--<button onclick="validate();"> Register Me</button>-->
+        <input type="button" value="Register Me" onclick="validate();" />
+
+    </div>
+}

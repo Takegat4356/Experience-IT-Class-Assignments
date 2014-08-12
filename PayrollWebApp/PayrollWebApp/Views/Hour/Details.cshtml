@@ -1,0 +1,74 @@
+﻿@model PayrollWebApp.Models.Hour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hours</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Regular_Hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regular_Hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Overtime_Hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Overtime_Hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Holiday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Holiday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vacation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vacation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
